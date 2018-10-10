@@ -1,0 +1,26 @@
+<h1> Show page </h1>
+
+<ul>
+  <h2><%= @question.title %></h2>
+  <li> <%= @question.description %> </li>
+</ul>
+
+<ul>
+  Answers
+  <% @question.answers.each do |answer| %>
+  <li> <%= answer.description %> </li>
+  <% end %>
+</ul>
+
+<h3> Add an answer! (Must be 50 cha or more) </h3>
+
+<%= form_for [@question, @answer] do |f| %>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
